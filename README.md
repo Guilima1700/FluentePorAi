@@ -27,13 +27,14 @@ Abra http://localhost:3000. Se a porta estiver ocupada, use `npm run dev -- --po
 ## Direção visual e interações
 
 - Abertura editorial com globo interativo, coordenadas e cartões flutuantes.
-- Avião ligado à rolagem: a rota é recalculada com as posições reais das seções e cruza a página nos intervalos entre elas. No celular, permanece na lateral.
+- Avião ligado à rolagem: a rota é recalculada com as posições reais das seções e cruza a página nos intervalos entre elas. A animação e a trilha aparecem apenas no desktop; ficam ocultas em telas pequenas e em dispositivos com toque como interação principal, inclusive em paisagem.
 - Quatro cursos com composições próprias: conversa animada, apresentação profissional, cartão de embarque e conexões de uma equipe.
 - Metodologia com quatro painéis acessíveis. Cada escolha atualiza a conversa ilustrativa.
 - Diferenciais em cards com tipografia Manrope padronizada e contato como cartão de embarque.
 - Seção de depoimentos com três espaços identificados como Em breve, pronta para receber relatos autorizados.
 - Menu móvel com fechamento por Escape, seleção de link e clique fora do cabeçalho.
 - Preferência de movimento reduzido respeitada no globo, voo, entradas e animações CSS.
+- Símbolos decorativos, setas e estrelas em SVG, sem substituição por emojis no iPhone ou em outros sistemas.
 
 ## Editar
 

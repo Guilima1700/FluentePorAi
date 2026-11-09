@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
+import BrandSpark from './BrandSpark';
 import {
   ArrowUpRight, Check, Clock3, Compass, Globe2, Laptop,
   MessageCircle, Quote, Sparkles,
@@ -31,7 +32,7 @@ function SectionHeading({ number, label, children, description }) {
     <Enter className="section-heading">
       <div>
         <p className="eyebrow">
-          <span className="tiny-cross" aria-hidden="true">✳</span>
+          <span className="tiny-cross" aria-hidden="true"><BrandSpark /></span>
           {label}<span className="eyebrow-number">{number}</span>
         </p>
         <h2>{children}</h2>
@@ -75,7 +76,7 @@ export function Benefits() {
               <span className="advantage-label">MAIS CONFIANÇA. MAIS POSSIBILIDADES.</span>
               <h3>O mundo espera<br />a sua voz.</h3>
               <p>Para as conversas, os encontros<br />e as histórias que vêm por aí.</p>
-              <div className="portrait-signature"><Globe2 size={17} aria-hidden="true" /><span>Fluente por Aí</span><span aria-hidden="true">↗</span></div>
+              <div className="portrait-signature"><Globe2 size={17} aria-hidden="true" /><span>Fluente por Aí</span><span aria-hidden="true"><ArrowUpRight size={18} /></span></div>
             </div>
           </Enter>
 
@@ -130,7 +131,7 @@ export function Testimonials() {
     <section id="depoimentos" className="testimonials-section section-anchor" aria-labelledby="testimonials-title">
       <div className="container">
         <Enter className="testimonials-heading">
-          <p className="eyebrow"><span className="tiny-cross" aria-hidden="true">✳</span> Nossa comunidade <span className="eyebrow-number">DEPOIMENTOS</span></p>
+          <p className="eyebrow"><span className="tiny-cross" aria-hidden="true"><BrandSpark /></span> Nossa comunidade <span className="eyebrow-number">DEPOIMENTOS</span></p>
           <div className="testimonials-heading-row">
             <h2 id="testimonials-title">Cada voz,<br /><em>uma nova história.</em></h2>
             <p>{testimonials.length ? 'As experiências de quem aprende com a Fluente por Aí.' : 'Em breve, você vai conhecer as experiências de quem aprende e vai além com a Fluente por Aí.'}</p>
@@ -152,7 +153,7 @@ export function Testimonials() {
             </Enter>
           ))}
         </div>
-        {!testimonials.length && <p className="testimonials-footnote"><span aria-hidden="true">✳</span> Conexões de verdade merecem ser compartilhadas.</p>}
+        {!testimonials.length && <p className="testimonials-footnote"><span aria-hidden="true"><BrandSpark size={15} /></span> Conexões de verdade merecem ser compartilhadas.</p>}
       </div>
     </section>
   );

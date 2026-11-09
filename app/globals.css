@@ -45,3 +45,12 @@ html{scroll-padding-top:0}
 @media(max-width:767px){.hero h1 br:first-of-type{display:block}.hero h1 em:before{content:none}}
 .contact-ticket{rotate:2deg}
 @media(max-width:767px){.contact-ticket{rotate:1deg}}
+/* SVG decoration avoids platform emoji substitution, including Safari on iOS. */
+.tiny-cross,.hero-spark{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.tiny-cross>svg,.hero-spark>svg{width:1em;height:1em}
+.hero-spark{width:1em;height:1em;line-height:1}
+.globe-caption{display:flex;justify-content:center;align-items:center;gap:7px}
+.globe-caption>span{display:inline-flex;margin-right:0}
+.chat-a>span:last-child{display:flex;align-items:center}
+.chat-a>span:last-child>span,.chat-b>span{display:inline-flex;align-items:center}
+@media(max-width:767.98px),(hover:none) and (pointer:coarse){.flight-journey{display:none}}
