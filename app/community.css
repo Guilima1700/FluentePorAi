@@ -1,0 +1,271 @@
+/* A single type system for benefit cards and student stories. */
+.advantages-board,
+.testimonials-grid {
+  --card-font: 'Manrope', var(--sans);
+  font-family: var(--card-font);
+}
+
+.advantages-board {
+  display: grid;
+  grid-template-columns: 1.04fr 1fr 1fr;
+  grid-template-rows: minmax(366px, auto) minmax(252px, auto);
+  gap: 20px;
+}
+
+.advantage-card,
+.advantage-portrait {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.advantage-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  background: #fffcf5;
+  border: 1px solid #01304a12;
+  box-shadow: 0 3px 4px #01304a02, 0 12px 30px #01304a04;
+  transition: box-shadow .4s, border-color .4s;
+}
+
+.advantage-card:hover {
+  border-color: #01304a2c;
+  box-shadow: 0 16px 32px #01304a0c;
+}
+
+.advantage-portrait { grid-row: span 2; }
+.advantage-portrait > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 55% center;
+  transition: transform 1.1s cubic-bezier(.22,1,.36,1);
+}
+.advantage-portrait:hover > img { transform: scale(1.035); }
+.portrait-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #01304a40, transparent 32%, #01304a90 65%, #01304af5);
+}
+.portrait-topline {
+  position: absolute;
+  inset: 23px 23px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #fffaf0;
+}
+.portrait-topline > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid #ffffff42;
+  border-radius: 30px;
+  background: #01304a22;
+  backdrop-filter: blur(12px);
+  font-size: 10px;
+  font-weight: 600;
+}
+.portrait-arrow {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #ffffff75;
+  background: #ffffff17;
+  backdrop-filter: blur(12px);
+  flex-shrink: 0;
+}
+.portrait-copy { position: absolute; inset: auto 28px 25px; color: #fff8ec; }
+.advantage-label { font-size: 9px; font-weight: 700; letter-spacing: .09em; line-height: 1.7; text-transform: uppercase; }
+.portrait-copy > .advantage-label { font-size: 8px; color: #d4e3e9; letter-spacing: .1em; }
+.portrait-copy h3 { margin-top: 15px; font: 600 36px/1.16 var(--card-font); letter-spacing: -.055em; }
+.portrait-copy p { color: #d6e2e7; font-size: 12px; line-height: 1.85; margin-top: 17px; }
+.portrait-signature { display: flex; align-items: center; gap: 9px; margin-top: 27px; padding-top: 17px; border-top: 1px solid #ffffff30; font-size: 11px; font-weight: 600; }
+.portrait-signature > span:last-child { margin-left: auto; font-size: 21px; }
+
+.advantage-card-header { display: flex; align-items: center; gap: 11px; position: relative; z-index: 1; }
+.advantage-icon { display: grid; place-items: center; width: 43px; height: 43px; background: #01304a06; border: 1px solid #01304a10; border-radius: 13px; flex-shrink: 0; }
+.advantage-number { font-size: 10px; font-weight: 600; letter-spacing: .02em; opacity: .35; margin-left: auto; }
+.advantage-copy { position: relative; z-index: 1; margin-top: 35px; }
+.advantage-copy h3 { font: 600 28px/1.25 var(--card-font); letter-spacing: -.055em; }
+.advantage-copy p { font: 400 13px/1.85 var(--card-font); letter-spacing: -.015em; color: #526873; max-width: 285px; margin-top: 16px; }
+.online-title-break { display: none; }
+.advantage-online { color: #fff8ec; background: radial-gradient(ellipse at 110% 10%, #387087 0, transparent 65%), #07374d; border-color: #01304a; }
+.advantage-online:hover { border-color: #669bbb; }
+.advantage-online .advantage-icon { background: #ffffff0b; border-color: #ffffff25; color: #d8e8ec; }
+.advantage-online .advantage-label { color: #d3e4eb; }
+.advantage-online .advantage-copy p { color: #c1d4dd; }
+.advantage-globe { position: absolute; top: -50px; right: -83px; height: 240px; width: 240px; color: #c2e4ee; opacity: .16; transform: rotate(-22deg); pointer-events: none; }
+.advantage-globe > svg { position: absolute; inset: 20px; }
+.advantage-globe > span { position: absolute; inset: 0; border: 1px solid currentColor; border-radius: 50%; }
+.advantage-globe > i { position: absolute; inset: 75px -25px; border: 1px solid currentColor; border-radius: 50%; transform: rotate(-25deg); }
+.advantage-card-footer { position: relative; display: flex; align-items: center; gap: 9px; border-top: 1px solid #ffffff24; padding-top: 17px; margin-top: auto; font-size: 9px; font-weight: 500; color: #d6e6e9; }
+.connection-indicator { position: relative; height: 6px; width: 6px; border-radius: 50%; background: #afd7bb; box-shadow: 0 0 0 4px #afd7bb10; flex-shrink: 0; }
+.advantage-personal { background: radial-gradient(ellipse at 100% 0%, #f7eddf, transparent 65%), #fffcf5; }
+.advantage-personal .advantage-icon { background: #c1121f05; color: var(--red); border-color: #c1121f16; }
+.personal-route { margin-top: auto; padding-top: 21px; color: #a94b4b; }
+.personal-route > svg { width: 100%; height: 45px; }
+.personal-route > div { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; font-size: 8px; font-weight: 500; color: #657780; }
+
+.advantage-schedule { grid-column: span 2; flex-direction: row; align-items: center; gap: 28px; background: linear-gradient(125deg, #f1eee5, #f8f5ed); }
+.schedule-copy { flex: 1; min-width: 0; }
+.advantage-schedule .advantage-copy { margin-top: 22px; }
+.advantage-schedule .advantage-copy h3 { font-size: 26px; }
+.advantage-schedule .advantage-copy p { margin-top: 12px; max-width: 320px; font-size: 12px; }
+.advantage-schedule .advantage-number { display: none; }
+.routine-stack { position: relative; width: 215px; flex-shrink: 0; margin: 10px 0; }
+.routine-back { position: absolute; inset: 3px 3px -4px -3px; background: #e2e6e1; border: 1px solid #01304a0e; border-radius: 11px; transform: rotate(-6deg); }
+.routine-note { position: relative; background: #fffcf6; border: 1px solid #01304a13; border-radius: 11px; box-shadow: 0 9px 22px #01304a09; padding: 14px 12px 10px; rotate: 3deg; transition: rotate .6s; }
+.advantage-schedule:hover .routine-note { rotate: 0deg; }
+.routine-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #5a6e78; padding: 0 5px 12px; border-bottom: 1px solid #01304a12; }
+.routine-heading > span { font-size: 7px; font-weight: 600; letter-spacing: .05em; }
+.routine-row { display: flex; align-items: center; gap: 8px; margin-top: 5px; padding: 10px 8px; font-size: 10px; font-weight: 500; color: #536a74; }
+.routine-row > svg { margin-left: auto; color: #71908d; }
+.routine-dot { height: 5px; width: 5px; background: #bdcbc8; border-radius: 50%; flex-shrink: 0; }
+.routine-row.is-highlighted { border-radius: 5px; background: var(--navy); color: #fef0d5; }
+.routine-row.is-highlighted > svg { color: #fef0d5; }
+.routine-row.is-highlighted .routine-dot { background: #a6c8d6; }
+
+/* These are clearly reserved spaces, with no fictitious names, ratings or quotes. */
+.testimonials-section { padding: 94px 0 90px; background: #f1ece1; border-top: 1px solid #01304a08; }
+.testimonials-heading { margin-bottom: 40px; }
+.testimonials-heading-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 50px; }
+.testimonials-heading-row > p { max-width: 315px; font-size: 14px; color: var(--ink-soft); line-height: 1.85; padding-bottom: 5px; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.testimonial-card { min-width: 0; margin: 0; padding: 28px; border: 1px solid #01304a14; border-radius: 18px; background: #fffaf1; box-shadow: 0 5px 18px #01304a02; }
+.testimonial-quote-icon { color: #a2484d; }
+.testimonial-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.coming-soon-badge { padding: 5px 11px; border: 1px solid #01304a12; border-radius: 20px; color: #6d797d; font-size: 9px; font-weight: 500; background: #01304a02; }
+.testimonial-blank-lines { display: flex; flex-direction: column; gap: 10px; padding-block: 34px 30px; opacity: .65; }
+.testimonial-blank-lines > span { height: 5px; border-radius: 4px; background: #e7e4dc; width: 91%; }
+.testimonial-blank-lines > span:nth-child(2) { width: 100%; }
+.testimonial-blank-lines > span:last-child { width: 64%; }
+.testimonial-pending { display: flex; align-items: center; gap: 12px; padding-top: 21px; border-top: 1px solid #01304a0d; }
+.pending-avatar { width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; display: grid; place-items: center; background: #e9eae3; color: #6d8287; }
+.testimonial-pending h3 { font: 600 11px/1.6 var(--card-font); letter-spacing: -.02em; }
+.testimonial-pending p { font-size: 9px; color: #738088; margin-top: 3px; line-height: 1.8; }
+.testimonials-footnote { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 26px; font-family: 'Manrope', var(--sans); color: #748088; font-size: 10px; }
+.testimonials-footnote > span { color: #a2484d; font-size: 16px; }
+.testimonial-card blockquote { font-size: 15px; line-height: 1.9; margin: 25px 0 30px; }
+.testimonial-card figcaption { display: flex; flex-direction: column; font-size: 12px; padding-top: 20px; border-top: 1px solid #01304a12; }
+.testimonial-card figcaption > span { color: #738088; font-size: 11px; margin-top: 3px; }
+
+@media(min-width:1500px) { .advantages-board { grid-template-rows: minmax(370px, auto) minmax(270px, auto); } }
+@media(max-width:1150px) {
+  .advantages-board { gap: 17px; grid-template-columns: .98fr 1fr 1fr; grid-template-rows: minmax(365px,auto) minmax(275px,auto); }
+  .advantage-card { padding: 23px; }
+  .advantage-card-header { gap: 9px; }
+  .advantage-icon { width: 38px; height: 38px; border-radius: 11px; }
+  .advantage-label { font-size: 8px; letter-spacing: .07em; }
+  .advantage-copy h3 { font-size: 25px; }
+  .advantage-copy p { font-size: 12px; }
+  .portrait-topline { inset-inline: 20px; }
+  .portrait-topline > span:first-child { font-size: 8px; padding: 8px 9px; gap: 6px; }
+  .portrait-arrow { height: 35px; width: 35px; }
+  .portrait-copy { inset-inline: 23px; }
+  .portrait-copy h3 { font-size: 31px; }
+  .portrait-copy > .advantage-label { font-size: 6px; }
+  .portrait-copy p { font-size: 11px; }
+  .advantage-card-footer { font-size: 8px; }
+  .personal-route > div { font-size: 7px; }
+  .advantage-schedule { gap: 20px; }
+  .advantage-schedule .advantage-copy h3 { font-size: 24px; }
+  .advantage-schedule .advantage-copy p { font-size: 11px; }
+  .routine-stack { width: 185px; }
+  .routine-note { padding: 12px 10px 9px; }
+  .routine-heading > span { font-size: 6px; }
+  .routine-row { font-size: 8px; }
+  .testimonial-card { padding: 23px; }
+  .testimonial-pending { gap: 10px; }
+  .testimonial-pending h3 { font-size: 10px; }
+  .testimonial-pending p { font-size: 8px; }
+}
+
+@media(min-width:768px) and (max-width:960px) {
+  .advantages-board { grid-template-columns: 1fr 1fr; grid-template-rows: minmax(350px,auto) auto auto; }
+  .advantage-portrait { grid-row: span 2; }
+  .advantage-online,.advantage-personal { min-height: 350px; }
+  .advantage-schedule { grid-column: span 2; min-height: 245px; padding: 28px; }
+  .routine-stack { width: 240px; margin-inline-end: 10px; }
+  .routine-row { font-size: 11px; }
+  .routine-heading > span { font-size: 7px; }
+  .portrait-copy h3 { font-size: 35px; }
+  .portrait-copy p { font-size: 12px; }
+  .testimonials-grid { gap: 13px; }
+  .testimonial-card { padding: 19px; }
+  .testimonial-pending { align-items: flex-start; }
+  .pending-avatar { width: 29px; height: 29px; }
+}
+
+@media(max-width:767px) {
+  .advantages-board { grid-template-columns: minmax(0,1fr); grid-template-rows: auto; gap: 17px; }
+  .advantage-portrait { grid-row: auto; height: 470px; }
+  .advantage-portrait > img { object-position: 55% 32%; }
+  .advantage-portrait,.advantage-card { border-radius: 18px; }
+  .portrait-topline { inset: 23px 23px auto; }
+  .portrait-topline > span:first-child { font-size: 10px; padding: 9px 12px; }
+  .portrait-arrow { width: 39px; height: 39px; }
+  .portrait-copy { inset: auto 26px 23px; }
+  .portrait-copy > .advantage-label { font-size: 7px; }
+  .portrait-copy h3 { font-size: 36px; }
+  .portrait-copy p { font-size: 12px; margin-top: 15px; }
+  .portrait-signature { margin-top: 23px; }
+  .advantage-card { padding: 26px; min-height: 330px; }
+  .advantage-card-header { gap: 12px; }
+  .advantage-icon { width: 43px; height: 43px; border-radius: 13px; }
+  .advantage-label { font-size: 9px; }
+  .advantage-number { font-size: 10px; }
+  .advantage-copy { margin-top: 29px; }
+  .advantage-copy h3 { font-size: 28px; }
+  .advantage-copy p { font-size: 13px; max-width: 400px; margin-top: 14px; }
+  .advantage-card-footer { font-size: 9px; padding-top: 18px; margin-top: 27px; }
+  .personal-route { max-width: 360px; padding-top: 25px; width: 100%; }
+  .personal-route > div { font-size: 8px; }
+  .advantage-schedule { grid-column: auto; flex-direction: column; align-items: stretch; gap: 30px; }
+  .advantage-schedule .advantage-copy { margin-top: 29px; }
+  .advantage-schedule .advantage-copy h3 { font-size: 28px; }
+  .advantage-schedule .advantage-copy p { font-size: 13px; max-width: 400px; }
+  .routine-stack { width: calc(100% - 16px); max-width: 330px; margin: 2px auto 9px; }
+  .routine-note { padding: 17px 13px 12px; }
+  .routine-heading { padding: 0 7px 13px; }
+  .routine-heading > span { font-size: 8px; }
+  .routine-row { padding: 12px 10px; font-size: 12px; gap: 11px; }
+  .testimonials-section { padding: 63px 0 60px; }
+  .testimonials-heading { margin-bottom: 30px; }
+  .testimonials-heading-row { display: block; }
+  .testimonials-heading-row > p { font-size: 13px; margin-top: 22px; max-width: 420px; }
+  .testimonials-grid { grid-template-columns: minmax(0,1fr); gap: 15px; }
+  .testimonial-card { padding: 25px; }
+  .testimonial-blank-lines { padding-block: 29px 27px; }
+  .testimonial-pending h3 { font-size: 12px; }
+  .testimonial-pending p { font-size: 10px; }
+  .testimonials-footnote { font-size: 9px; text-align: center; justify-content: flex-start; align-items: flex-start; gap: 9px; line-height: 1.8; }
+  .testimonials-footnote > span { line-height: 1; padding-top: 2px; }
+}
+
+@media(max-width:360px) {
+  .advantage-card { padding: 23px; }
+  .advantage-copy h3,.advantage-schedule .advantage-copy h3 { font-size: 25px; }
+  .advantage-copy p,.advantage-schedule .advantage-copy p { font-size: 12px; }
+  .advantage-label { font-size: 8px; }
+  .portrait-copy { inset-inline: 23px; }
+  .portrait-copy h3 { font-size: 32px; }
+  .portrait-copy > .advantage-label { font-size: 6px; }
+  .portrait-topline { inset-inline: 20px; }
+  .portrait-topline > span:first-child { font-size: 9px; }
+  .advantage-card-footer { font-size: 8px; }
+  .testimonial-card { padding: 22px; }
+  .testimonial-pending h3 { font-size: 10px; }
+  .testimonial-pending p { font-size: 9px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .advantage-portrait > img,.advantage-card,.routine-note { transition: none; }
+  .advantage-portrait:hover > img { transform: none; }
+}
