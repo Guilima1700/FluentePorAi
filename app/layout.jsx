@@ -1,5 +1,6 @@
 import "./globals.css";
 import "./community.css";
+import "./globe.css";
 
 export const metadata = {
   title: "Fluente por Aí | English that takes you places",

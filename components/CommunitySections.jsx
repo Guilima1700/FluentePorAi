@@ -2,14 +2,12 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import BrandSpark from './BrandSpark';
+import StudentStory from './StudentStory';
+import { testimonials } from './testimonials.mjs';
 import {
   ArrowUpRight, Check, Clock3, Compass, Globe2, Laptop,
   MessageCircle, Quote, Sparkles,
 } from 'lucide-react';
-
-// Add approved student accounts here. Empty data deliberately shows "Em breve".
-// Format: { name: 'Nome', course: 'Programa', quote: 'Depoimento autorizado' }
-const testimonials = [];
 
 function Enter({ children, className, delay = 0, as = 'div' }) {
   const reduced = useReducedMotion();
@@ -140,10 +138,8 @@ export function Testimonials() {
 
         <div className="testimonials-grid">
           {testimonials.length ? testimonials.map((item, index) => (
-            <Enter as="figure" key={`${item.name}-${index}`} delay={index * 0.06} className="testimonial-card">
-              <Quote className="testimonial-quote-icon" size={30} strokeWidth={1.5} aria-hidden="true" />
-              <blockquote>{item.quote}</blockquote>
-              <figcaption><strong>{item.name}</strong>{item.course && <span>{item.course}</span>}</figcaption>
+            <Enter as="figure" key={item.id} delay={index * 0.06} className="testimonial-card testimonial-story">
+              <StudentStory story={item} />
             </Enter>
           )) : [0, 1, 2].map(index => (
             <Enter as="article" key={index} delay={index * 0.06} className="testimonial-card testimonial-placeholder">

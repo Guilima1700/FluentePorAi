@@ -1,0 +1,57 @@
+/* Confined to the existing globe footprint. Hero text, grid and brand are intact. */
+.interactive-globe { isolation:auto; z-index:auto; -webkit-user-select:none; touch-action:pan-y; }
+.interactive-globe,.globe-scene canvas,.globe-fallback canvas { touch-action:pan-y pinch-zoom; }
+.globe-scene,.globe-fallback { position:absolute; inset:0; width:100%; height:100%; }
+.globe-scene { opacity:0; transition:opacity 1s ease; }
+.globe-scene canvas { display:block; width:100%; height:100%; touch-action:pan-y; cursor:grab; }
+.globe-scene[data-dragging="true"] canvas { cursor:grabbing; }
+.globe-fallback { opacity:1; transition:opacity .7s ease; }
+.interactive-globe[data-globe-state="ready"] .globe-scene { opacity:1; }
+.interactive-globe[data-globe-state="ready"] .globe-fallback { opacity:0; visibility:hidden; pointer-events:none; }
+.interactive-globe[data-globe-state="fallback"] .globe-scene { display:none; }
+.globe-pins { display:none; position:absolute; inset:0; pointer-events:none; }
+.interactive-globe[data-globe-state="ready"] .globe-pins { display:block; }
+.globe-pin { position:absolute; left:0; top:0; width:38px; height:38px; padding:0; margin:-19px 0 0 -19px; border:0; background:transparent; pointer-events:auto; visibility:hidden; outline-offset:1px; border-radius:50%; will-change:transform; }
+.globe-pin-label { position:absolute; left:28px; top:9px; padding:3px 8px; border-radius:14px; border:1px solid #01304a1c; background:#fff6e6ed; box-shadow:0 3px 12px #01304a0a; color:var(--navy); font:700 10px/1.5 var(--sans); white-space:nowrap; transition:background .25s,color .25s,box-shadow .25s; }
+.globe-pin-manaus .globe-pin-label { background:var(--red); color:var(--cream); border-color:#fef0d580; }
+.globe-pin-toronto .globe-pin-label { left:auto; right:27px; top:-3px; }
+.globe-pin-london .globe-pin-label { left:auto; right:26px; top:20px; }
+.globe-pin-new-york .globe-pin-label { top:18px; }
+.globe-pin.is-highlighted .globe-pin-label,.globe-pin:hover .globe-pin-label { background:var(--navy); color:var(--cream); box-shadow:0 5px 18px #01304a20; }
+.globe-motion-control { position:absolute; top:19%; left:8%; z-index:2; display:grid; place-items:center; width:30px; height:30px; padding:0; border:1px solid #01304a20; border-radius:50%; color:var(--navy); background:#fff8ecdc; backdrop-filter:blur(8px); transition:background .2s; }
+.globe-motion-control:hover { background:var(--cream); }
+.globe-city-card { position:absolute; left:12%; top:63%; z-index:4; width:min(215px,70%); padding:17px 19px 18px; border:1px solid #01304a21; border-radius:11px; background:#fff8ecf5; box-shadow:0 14px 35px #01304a15; backdrop-filter:blur(8px); user-select:text; }
+.globe-city-country { display:flex; align-items:center; gap:10px; padding-right:18px; text-transform:uppercase; font:7px/1.5 'Courier New',monospace; letter-spacing:.1em; color:#536c77; }
+.globe-city-country>span { border-left:1px solid #01304a20; padding-left:9px; }
+.globe-city-card h3 { margin-top:7px; font:400 29px/1.1 var(--serif); letter-spacing:-.02em; color:var(--navy); }
+.globe-city-card p { margin-top:9px; padding-top:9px; border-top:1px solid #01304a14; color:var(--red); font:italic 19px/1.15 var(--serif); }
+.globe-city-card>button { position:absolute; right:9px; top:9px; width:27px; height:27px; border:0; display:grid; place-items:center; border-radius:50%; background:transparent; color:#47606a; }
+.globe-city-card>button:hover { background:#01304a09; }
+@media(max-width:767px) {
+  .globe-pin-label { font-size:8px; padding:2px 6px; left:26px; top:11px; }
+  .globe-pin-toronto .globe-pin-label { right:24px; top:1px; }
+  .globe-pin-new-york .globe-pin-label { top:21px; }
+  .globe-motion-control { width:29px; height:29px; top:17%; left:7%; }
+  .globe-city-card { left:7%; top:60%; padding:14px 16px 15px; width:min(195px,74%); }
+  .globe-city-country { font-size:6px; }
+  .globe-city-card h3 { font-size:25px; }
+  .globe-city-card p { font-size:17px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .globe-scene,.globe-fallback,.globe-pin-label { transition:none; }
+}
+@keyframes globe-card-arrive {
+  from { opacity:0; translate:0 8px; }
+  to { opacity:1; translate:0 0; }
+}
+.hero-visual:has(.interactive-globe[data-globe-state="loading"]) .destination,
+.hero-visual:has(.interactive-globe[data-globe-state="loading"]) .hero-ticket { opacity:0; }
+.hero-visual:has(.interactive-globe[data-globe-state="ready"]) .destination-london {
+  animation:globe-card-arrive .8s 1.7s both, float-a 7s 2.5s ease-in-out infinite;
+}
+.hero-visual:has(.interactive-globe[data-globe-state="ready"]) .destination-world {
+  animation:globe-card-arrive .8s 2.1s both, float-b 8s 2.9s ease-in-out infinite;
+}
+.hero-visual:has(.interactive-globe[data-globe-state="ready"]) .hero-ticket {
+  animation:globe-card-arrive .85s 2.5s both;
+}

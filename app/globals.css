@@ -54,3 +54,4 @@ html{scroll-padding-top:0}
 .chat-a>span:last-child{display:flex;align-items:center}
 .chat-a>span:last-child>span,.chat-b>span{display:inline-flex;align-items:center}
 @media(max-width:767.98px),(hover:none) and (pointer:coarse){.flight-journey{display:none}}
+.journey-plane{filter:drop-shadow(0 5px 4px #01304a25) drop-shadow(0 1px 1px #01304a16)}
