@@ -1,4 +1,5 @@
 import { readFileSync, existsSync } from 'node:fs';
+import './check-conflicts.mjs';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const manifest = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));

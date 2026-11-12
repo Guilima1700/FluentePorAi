@@ -13,6 +13,8 @@
 .footer-contact-links small { display:block; font:700 8px/1.5 var(--sans); letter-spacing:.1em; margin-bottom:6px; color:#47606a; }
 .footer-contact-links strong { display:block; font:700 12px/1.6 var(--sans); overflow-wrap:anywhere; }
 .footer-contact-links a:hover strong { color:var(--red); }
+.footer-bottom { flex-wrap:wrap; }
+.footer-bottom a { text-decoration:underline; text-underline-offset:3px; }
 .complete-stories { max-width:960px; margin-inline:auto; gap:22px; }
 .complete-story { grid-template-columns:90px minmax(0,1fr); align-items:center; gap:23px; padding:30px 34px; background:var(--cream); }
 .complete-story:nth-child(2) { background:var(--cream); }

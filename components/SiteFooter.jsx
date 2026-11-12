@@ -18,7 +18,7 @@ export default function SiteFooter({ baseHref = '' }) {
           <a href="https://instagram.com/fluenteporai" target="_blank" rel="noopener noreferrer"><Instagram size={21} aria-hidden="true"/><span><small>INSTAGRAM</small><strong>@fluenteporai</strong></span><ArrowUpRight size={16} aria-hidden="true"/><span className="sr-only"> (abre Instagram em nova aba)</span></a>
         </address>
       </section>
-      <div className="footer-bottom"><span>© {new Date().getFullYear()} Fluente por Aí. Todos os direitos reservados.</span><span>FEITO PARA CONECTAR VOCÊ AO MUNDO <span aria-hidden="true"><BrandSpark size={19}/></span></span></div>
+      <div className="footer-bottom"><span>© {new Date().getFullYear()} Fluente por Aí. Todos os direitos reservados.</span><span>Esse site foi desenvolvido pela <a href="https://www.instagram.com/crystallcode/" target="_blank" rel="noopener noreferrer">Crystal Code</a>.</span><span>FEITO PARA CONECTAR VOCÊ AO MUNDO <span aria-hidden="true"><BrandSpark size={19}/></span></span></div>
     </div>
   </footer>;
 }
