@@ -31,15 +31,17 @@ export default function FlightJourney() {
       // Mobile gets neither airplane nor trail, including phones in landscape.
       if(query.matches||mobileQuery.matches){length=0;svg.style.visibility='hidden';return;}
       const width=host.clientWidth, height=host.scrollHeight, top=host.getBoundingClientRect().top+window.scrollY;
-      const ys=['sobre','cursos','metodologia','diferenciais','contato'].map(id=>document.getElementById(id).getBoundingClientRect().top+window.scrollY-top);
-      const xs=[.965,.035,.965,.035,.965].map(x=>width*x);
-      start=ys[0]-65;end=ys[4]+90;
+      const sections=['sobre','metodologia','depoimentos','faq'].map(id=>host.querySelector(`#${id}`)).filter(Boolean);
+      if(sections.length<2){length=0;svg.style.visibility='hidden';return;}
+      const ys=sections.map(section=>section.getBoundingClientRect().top+window.scrollY-top);
+      const xs=ys.map((_,i)=>width*(i%2?.035:.965));
+      start=ys[0]-65;end=ys[ys.length-1]+90;
       let d=`M ${xs[0]} ${start}`;
       for(let i=1;i<ys.length;i++){
         const boundary=ys[i];
         d+=` L ${xs[i-1]} ${boundary-80} C ${xs[i-1]} ${boundary-20}, ${xs[i]} ${boundary+20}, ${xs[i]} ${boundary+70}`;
       }
-      d+=` L ${xs[4]} ${end}`;
+      d+=` L ${xs[xs.length-1]} ${end}`;
       currentDistance=null;currentAngle=null;
       svg.setAttribute('viewBox',`0 0 ${width} ${height}`);path.setAttribute('d',d);trail.setAttribute('d',d);length=path.getTotalLength();trail.style.strokeDasharray=String(length);schedule();
     };

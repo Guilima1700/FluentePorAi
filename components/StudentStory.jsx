@@ -1,13 +1,11 @@
 'use client';
 
-import { useId, useState } from 'react';
-import { ChevronDown, Quote } from 'lucide-react';
+import { ArrowUpRight, Quote } from 'lucide-react';
 
 export default function StudentStory({ story }) {
-  const [expanded, setExpanded] = useState(false);
-  const fullStoryId = useId();
   return (
     <>
+      <figcaption className="story-person">
       <div className="story-photo">
         <img
           src={story.photo}
@@ -20,23 +18,16 @@ export default function StudentStory({ story }) {
         />
         <span className="story-photo-badge" aria-hidden="true"><Quote size={20} strokeWidth={1.5} /></span>
       </div>
-      <figcaption className="story-author"><strong>{story.name}</strong><span>{story.byline}</span></figcaption>
+      <div className="story-author"><strong>{story.name}</strong><span>{story.byline}</span></div>
+      </figcaption>
       <div className="story-copy">
-        <blockquote hidden={expanded} className="story-preview"><p>{story.preview}</p></blockquote>
-        <blockquote id={fullStoryId} hidden={!expanded} className="story-full">
-          {story.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-        </blockquote>
+        <Quote size={22} strokeWidth={1.3} aria-hidden="true" />
+        <blockquote className="story-preview"><p>{story.preview}</p></blockquote>
       </div>
-      <button
-        type="button"
-        className="story-expand"
-        aria-expanded={expanded}
-        aria-controls={fullStoryId}
-        onClick={() => setExpanded(value => !value)}
-      >
-        <span>{expanded ? 'Mostrar menos' : 'Ler depoimento completo'}<span className="sr-only"> de {story.name}</span></span>
-        <ChevronDown size={17} aria-hidden="true" />
-      </button>
+      <a className="story-expand" href={`/depoimentos/#${story.id}`}>
+        <span>Ler relato completo<span className="sr-only"> de {story.name}</span></span>
+        <ArrowUpRight size={17} aria-hidden="true" />
+      </a>
     </>
   );
 }

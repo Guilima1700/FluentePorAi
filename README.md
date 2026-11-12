@@ -30,23 +30,30 @@ Abra http://localhost:3000. Se a porta estiver ocupada, use `npm run dev -- --po
 
 ## Direção visual e interações
 
-- Abertura editorial com globo interativo, coordenadas e cartões flutuantes.
+- Fundo vermelho com a fotografia de viagem fornecida pela cliente. Tipografia editorial, contraste em creme, azul vibrante e botão principal de WhatsApp em destaque.
+- Abertura com mapa de conexões em SVG: sem WebGL ou carregamento de texturas. Toque ou use o teclado para escolher Londres, Nova York, Toronto e Sydney. Em telas pequenas, botões de 44 pixels facilitam a seleção.
+- `/opcoes-mapa/`: página de comparação com mapa de conexões, globo ilustrado e o globo 3D anterior. A seleção é apenas uma prévia e não altera o mapa da página inicial. Essa página não aparece na navegação de visitantes e tem indexação desativada.
 - Avião ligado à rolagem: a rota é recalculada com as posições reais das seções e cruza a página nos intervalos entre elas. A animação e a trilha aparecem apenas no desktop; ficam ocultas em telas pequenas e em dispositivos com toque como interação principal, inclusive em paisagem.
-- Quatro cursos com composições próprias: conversa animada, apresentação profissional, cartão de embarque e conexões de uma equipe.
+- Página mais curta para conversão, sem as antigas seções de cards de cursos e diferenciais nem o cartão de formulário. Apresentação, metodologia, depoimentos e FAQ conduzem ao WhatsApp.
 - Metodologia com quatro painéis acessíveis. Cada escolha atualiza a conversa ilustrativa.
-- Diferenciais em cards com tipografia Manrope padronizada e contato como cartão de embarque.
-- Comunidade com os relatos e fotos de Jairo Oliveira, Sophia Cruz e Renata com Sophia e Davi. Os relatos completos abrem pelo botão de leitura, com controles acessíveis.
+- FAQ no final com sete perguntas e respostas, abertura nativa por clique ou teclado e botão de contato. Informações comerciais não confirmadas são direcionadas à equipe.
+- Comunidade compacta com avatares redondos e trechos em balões. O botão “Ver todos os depoimentos” abre `/depoimentos/`, com relatos completos e retratos pequenos para facilitar a rolagem. Os links individuais levam diretamente ao relato escolhido.
+- Telefone, e-mail e Instagram ficam no rodapé compartilhado entre a página inicial e a página de depoimentos. Os botões de WhatsApp abrem o contato diretamente, sem formulário intermediário.
+- Painel da metodologia em azul-marinho sólido, sem o mapa de fundo, com os dois balões na mesma cor creme.
 - Menu móvel com fechamento por Escape, seleção de link e clique fora do cabeçalho.
 - Preferência de movimento reduzido respeitada no globo, voo, entradas e animações CSS.
 - Símbolos decorativos, setas e estrelas em SVG, sem substituição por emojis no iPhone ou em outros sistemas.
 
 ## Editar
 
-- Conteúdo, programas, exemplos e contato: `app/page.jsx`.
-- Diferenciais e estrutura da comunidade: `components/CommunitySections.jsx`.
-- Relatos e fotos da comunidade: `components/testimonials.mjs`; apresentação e expansão: `components/StudentStory.jsx`.
-- Estilos dos diferenciais e depoimentos: `app/community.css`.
-- Layout, animações e pontos de quebra: `app/globals.css`.
+- Conteúdo, exemplos e contato: `app/page.jsx`.
+- Estrutura da comunidade: `components/CommunitySections.jsx`.
+- Perguntas e respostas: `components/FAQ.jsx`; estilos: `app/faq.css`.
+- Relatos e fotos da comunidade: `components/testimonials.mjs`; resumos: `components/StudentStory.jsx`; página completa: `app/depoimentos/page.jsx`.
+- Mapa leve: `components/ConnectionMap.jsx`; comparação: `components/MapOptions.jsx` e `app/opcoes-mapa/page.jsx`.
+- Contatos e rodapé: `components/SiteFooter.jsx`; refinamentos de cores e retratos: `app/refinements.css`.
+- Estilos da comunidade: `app/community.css` e `app/vibrant.css`.
+- Layout original: `app/globals.css`; nova direção vermelha e pontos de quebra: `app/vibrant.css`.
 - Navegação: `components/Header.jsx`.
 - Rota do avião: `components/FlightJourney.jsx`.
 - Globo: `components/InteractiveGlobe.jsx`.
@@ -54,11 +61,11 @@ Abra http://localhost:3000. Se a porta estiver ocupada, use `npm run dev -- --po
 
 Os exemplos de conversa são demonstrativos. Os três depoimentos e as fotografias da comunidade foram fornecidos pelo cliente. Os emojis do relato familiar foram omitidos para preservar o padrão visual em SVG do site. Não foram acrescentadas notas, avaliações ou cursos não informados. O LinkedIn sem URL confirmada também não foi convertido em link.
 
-A tipografia usa Instrument Serif e Urbanist na identidade do site, e Manrope nos cards de diferenciais e depoimentos, via Google Fonts; existem fontes de sistema como alternativa. As imagens e os logos são os arquivos fornecidos no projeto original.
+A tipografia usa Instrument Serif nos títulos e Manrope nos textos e controles, via Google Fonts, com fontes de sistema como alternativa. As fotografias, as referências visuais e os logos foram fornecidos pelo cliente. A organização da página foi inspirada na clareza da referência Aliança América, sem copiar suas promessas, números, condições comerciais ou depoimentos.
 
-## Globo 3D da Hero
+## Alternativa de globo 3D
 
-O componente público `components/InteractiveGlobe.jsx` mantém o encaixe original da Hero e carrega `InteractiveGlobe3D.jsx`. O motor Three.js fica em um chunk separado, importado quando o globo se aproxima da área visível.
+O componente `components/InteractiveGlobe.jsx` carrega `InteractiveGlobe3D.jsx`. Ele agora aparece apenas quando a opção “Globo em movimento” é escolhida em `/opcoes-mapa/`. O motor Three.js fica em um chunk separado, sem ser baixado pela página inicial.
 
 - `components/globe/createGlobe.mjs`: esfera texturizada, iluminação, atmosfera, partículas, animação progressiva e controles. Libera materiais, geometrias, texturas e eventos ao desmontar.
 - `components/globe/destinations.mjs`: cidades, países, coordenadas e expressões ilustrativas em inglês. Manaus é a origem das quatro rotas: Londres, Nova York, Toronto e Sydney.

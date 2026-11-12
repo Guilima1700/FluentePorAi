@@ -1,6 +1,9 @@
 import "./globals.css";
 import "./community.css";
 import "./globe.css";
+import "./vibrant.css";
+import "./faq.css";
+import "./refinements.css";
 
 export const metadata = {
   title: "Fluente por Aí | English that takes you places",
@@ -17,7 +20,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#FEF0D5",
+  themeColor: "#C1121F",
   width: "device-width",
   initialScale: 1,
 };
