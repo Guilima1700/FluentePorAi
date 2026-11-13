@@ -9,6 +9,8 @@ import {
   MessageCircle, Quote,
 } from 'lucide-react';
 
+const featuredTestimonials = testimonials.filter(story => story.featured);
+
 function Enter({ children, className, delay = 0, as = 'div' }) {
   const reduced = useReducedMotion();
   const Element = motion[as];
@@ -33,12 +35,12 @@ export function Testimonials() {
           <p className="eyebrow"><span className="tiny-cross" aria-hidden="true"><BrandSpark /></span> Nossa comunidade <span className="eyebrow-number">DEPOIMENTOS</span></p>
           <div className="testimonials-heading-row">
             <h2 id="testimonials-title">Cada voz,<br /><em>uma nova história.</em></h2>
-            <p>{testimonials.length ? 'As experiências de quem aprende com a Fluente por Aí.' : 'Em breve, você vai conhecer as experiências de quem aprende e vai além com a Fluente por Aí.'}</p>
+            <p>{featuredTestimonials.length ? 'As experiências de quem aprende com a Fluente por Aí.' : 'Em breve, você vai conhecer as experiências de quem aprende e vai além com a Fluente por Aí.'}</p>
           </div>
         </Enter>
 
         <div className="testimonials-grid">
-          {testimonials.length ? testimonials.map((item, index) => (
+          {featuredTestimonials.length ? featuredTestimonials.map((item, index) => (
             <Enter as="figure" key={item.id} delay={index * 0.06} className="testimonial-card testimonial-story">
               <StudentStory story={item} />
             </Enter>
@@ -50,8 +52,8 @@ export function Testimonials() {
             </Enter>
           ))}
         </div>
-        {testimonials.length > 0 && <div className="all-stories-cta"><p>Cada experiência merece ser contada por inteiro.</p><a className="button button-light" href="/depoimentos/">Ver todos os depoimentos <span className="button-arrow"><ArrowUpRight size={19} aria-hidden="true" /></span></a></div>}
-        {!testimonials.length && <p className="testimonials-footnote"><span aria-hidden="true"><BrandSpark size={15} /></span> Conexões de verdade merecem ser compartilhadas.</p>}
+        {featuredTestimonials.length > 0 && <div className="all-stories-cta"><p>Cada experiência merece ser contada por inteiro.</p><a className="button button-light" href="/depoimentos/">Ver todos os depoimentos <span className="button-arrow"><ArrowUpRight size={19} aria-hidden="true" /></span></a></div>}
+        {!featuredTestimonials.length && <p className="testimonials-footnote"><span aria-hidden="true"><BrandSpark size={15} /></span> Conexões de verdade merecem ser compartilhadas.</p>}
       </div>
     </section>
   );

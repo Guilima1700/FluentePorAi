@@ -4,7 +4,7 @@ import BrandSpark from '../../components/BrandSpark';
 import SiteFooter from '../../components/SiteFooter';
 import { testimonials } from '../../components/testimonials.mjs';
 
-export const metadata = { title:'Depoimentos da nossa comunidade | Fluente por Aí',description:'Leia os depoimentos completos de Jairo Oliveira, Sophia Cruz e Renata e família sobre suas experiências com a Fluente por Aí.' };
+export const metadata = { title:'Depoimentos da nossa comunidade | Fluente por Aí',description:'Leia os depoimentos de alunos da Fluente por Aí: Jairo Oliveira, Sophia Cruz, Renata e família, Jeffeson Encarnação, Paulo Hiroyuki, Ana Vitória Macena e Luiz Felipe.' };
 
 export default function TestimonialsPage(){
   return <><a className="skip-link" href="#conteudo">Ir para o conteúdo</a><Header whatsappLink="https://wa.me/5592982021077" baseHref="/"/>
