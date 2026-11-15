@@ -1,4 +1,5 @@
-.conversion-site { --sans:'Manrope',system-ui,sans-serif; font-size:17px; }
+.conversion-site { --sans:'Manrope',system-ui,sans-serif; --conversion-header-height:87px; font-size:17px; }
+.conversion-site .header-inner { height:calc(var(--conversion-header-height) - 1px); }
 .stories-page .complete-story blockquote { font-size:16px; line-height:1.9; }
 .stories-page-heading>p:not(.eyebrow) { font-size:17px; }
 .stories-page-heading nav a { font-size:14px; min-height:44px; }
@@ -11,7 +12,7 @@
 .conversion-site .desktop-nav a { font-size:15px; }
 .conversion-site .header-cta { font-size:16px; min-height:52px; }
 .conversion-eyebrow { font-size:12px; font-weight:800; letter-spacing:.12em; line-height:1.7; margin-bottom:22px; }
-.conversion-hero { background:var(--red); color:var(--cream); padding:85px 0 75px; }
+.conversion-hero { background:var(--red); color:var(--cream); padding:85px 0 75px; min-height:calc(100vh - var(--conversion-header-height)); min-height:calc(100svh - var(--conversion-header-height)); min-height:calc(100dvh - var(--conversion-header-height)); display:flex; align-items:center; }
 .conversion-hero-inner { max-width:1000px; text-align:center; }
 .conversion-hero h1 { font:400 clamp(70px,7.5vw,108px)/1.02 var(--serif); letter-spacing:-.035em; }
 .conversion-hero h1 em { font-weight:400; }
@@ -64,6 +65,7 @@
 .conversion-site .footer-bottom { font-size:12px; flex-wrap:wrap; }
 @media(max-width:1023px) { .conversion-site .container { width:calc(100% - 48px); } .conversion-about-grid { gap:40px; } }
 @media(max-width:767px) {
+ .conversion-site { --conversion-header-height:75px; }
  .site-header .header-cta { font-size:14px; }
  .conversion-site .container { width:calc(100% - 40px); }
  .conversion-site .header-cta { font-size:14px; padding:12px 17px; min-height:48px; gap:13px; }
