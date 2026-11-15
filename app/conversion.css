@@ -1,0 +1,109 @@
+.conversion-site { --sans:'Manrope',system-ui,sans-serif; font-size:17px; }
+.stories-page .complete-story blockquote { font-size:16px; line-height:1.9; }
+.stories-page-heading>p:not(.eyebrow) { font-size:17px; }
+.stories-page-heading nav a { font-size:14px; min-height:44px; }
+.stories-page-cta .button { font-size:16px; }
+.footer-contact-links strong { font-size:14px; }
+.footer-contact-links small { font-size:11px; }
+.site-header .header-cta { font-size:16px; }
+.conversion-site .container { width:min(1120px,calc(100% - 80px)); }
+.conversion-site .site-header { background:var(--red); }
+.conversion-site .desktop-nav a { font-size:15px; }
+.conversion-site .header-cta { font-size:16px; min-height:52px; }
+.conversion-eyebrow { font-size:12px; font-weight:800; letter-spacing:.12em; line-height:1.7; margin-bottom:22px; }
+.conversion-hero { background:var(--red); color:var(--cream); padding:85px 0 75px; }
+.conversion-hero-inner { max-width:1000px; text-align:center; }
+.conversion-hero h1 { font:400 clamp(70px,7.5vw,108px)/1.02 var(--serif); letter-spacing:-.035em; }
+.conversion-hero h1 em { font-weight:400; }
+.conversion-lead { max-width:780px; margin:28px auto 0; font-size:21px; line-height:1.8; }
+.conversion-actions { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:26px; margin-top:33px; }
+.conversion-button { display:inline-flex; align-items:center; justify-content:center; gap:22px; padding:20px 27px; min-height:66px; border-radius:50px; background:var(--cream); color:var(--navy); font-size:18px; font-weight:800; line-height:1.5; text-align:center; transition:background .2s,transform .2s; }
+.conversion-button:hover { background:white; transform:translateY(-2px); }
+.conversion-button>svg { flex-shrink:0; }
+.conversion-secondary { display:flex; align-items:center; gap:13px; font-size:18px; font-weight:700; min-height:52px; }
+.conversion-proof { display:flex; justify-content:center; flex-wrap:wrap; gap:28px; font-size:15px; margin-top:30px; }
+.conversion-proof>span { display:flex; align-items:center; gap:10px; }
+.conversion-about { background:var(--cream); color:var(--navy); padding:85px 0; }
+.conversion-about-grid { display:grid; grid-template-columns:1fr 1fr; gap:75px; align-items:start; }
+.conversion-about h2 { font-size:clamp(43px,4.6vw,65px); line-height:1.1; }
+.conversion-about-grid>div>p:not(.conversion-eyebrow) { font-size:17px; line-height:1.9; margin-top:24px; }
+.conversion-programs { padding-top:3px; }
+.conversion-programs h3 { font:800 24px/1.4 var(--sans); }
+.conversion-programs ul { list-style:none; margin:12px 0 27px; padding:0; }
+.conversion-programs li { display:flex; align-items:flex-start; gap:14px; padding:20px 0; border-bottom:1px solid #01304a26; }
+.conversion-programs li>svg { color:var(--red); flex-shrink:0; margin-top:3px; }
+.conversion-programs strong { display:block; font-size:19px; line-height:1.6; }
+.conversion-programs li p { font-size:16px; line-height:1.8; margin-top:4px; color:#345364; }
+.conversion-inline-link { display:inline-flex; align-items:center; gap:12px; color:var(--red); font-size:17px; font-weight:800; min-height:48px; }
+.conversion-benefits { padding:80px 0; background:var(--navy); color:var(--cream); }
+.conversion-section-heading { max-width:720px; margin:0 auto 38px; text-align:center; }
+.conversion-section-heading h2 { font-size:clamp(48px,5vw,72px); }
+.conversion-section-heading h2 em { color:#a9d0e3; }
+.conversion-section-heading>p:last-child { font-size:18px; line-height:1.8; margin-top:23px; }
+.conversion-benefits-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.conversion-benefit { background:#0a3b53; border:1px solid #fef0d525; padding:34px; border-radius:20px; }
+.conversion-benefit>svg { color:#a9d0e3; margin-bottom:24px; }
+.conversion-benefit h3 { font:800 25px/1.4 var(--sans); margin-bottom:15px; letter-spacing:-.025em; }
+.conversion-benefit p { color:#f7eee0; font-size:17px; line-height:1.9; }
+.conversion-benefits-cta { margin-top:34px; text-align:center; }
+.conversion-site .testimonials-heading-row>p { font-size:18px; line-height:1.8; }
+.conversion-site .eyebrow { font-size:12px; }
+.conversion-site .testimonial-story blockquote { font-size:16px; line-height:1.9; }
+.conversion-site .story-copy { min-height:240px; }
+.conversion-site .story-expand { font-size:15px; min-height:48px; }
+.conversion-site .story-author>span { font-size:12px; }
+.conversion-site .all-stories-cta .button { font-size:16px; min-height:60px; }
+.conversion-site .faq-item summary { font-size:17px; min-height:76px; }
+.conversion-site .faq-answer p { font-size:16px; line-height:1.9; }
+.conversion-site .faq-heading>p:last-child,.conversion-site .faq-contact>p { font-size:17px; }
+.conversion-site .faq-contact .button { font-size:17px; }
+.conversion-site .footer nav { font-size:14px; }
+.conversion-site .footer-contact-links strong { font-size:14px; }
+.conversion-site .footer-contact-links small { font-size:11px; }
+.conversion-site .footer-contact-links { grid-template-columns:1fr 1.35fr 1fr; }
+.conversion-site .footer-bottom { font-size:12px; flex-wrap:wrap; }
+@media(max-width:1023px) { .conversion-site .container { width:calc(100% - 48px); } .conversion-about-grid { gap:40px; } }
+@media(max-width:767px) {
+ .site-header .header-cta { font-size:14px; }
+ .conversion-site .container { width:calc(100% - 40px); }
+ .conversion-site .header-cta { font-size:14px; padding:12px 17px; min-height:48px; gap:13px; }
+ .conversion-site .menu-toggle { height:44px; width:44px; }
+ .conversion-hero { padding:43px 0 43px; }
+ .conversion-hero-inner { text-align:left; }
+ .conversion-eyebrow { font-size:10px; margin-bottom:23px; }
+ .conversion-hero h1 { font-size:clamp(62px,15vw,86px); line-height:1.03; }
+ .conversion-lead { font-size:18px; line-height:1.85; margin-top:25px; }
+ .conversion-actions { align-items:stretch; flex-direction:column; gap:13px; margin-top:26px; }
+ .conversion-button { width:100%; font-size:16px; padding:18px 20px; min-height:64px; gap:15px; }
+ .conversion-secondary { font-size:17px; min-height:48px; justify-content:center; }
+ .conversion-proof { justify-content:flex-start; font-size:13px; gap:13px 20px; margin-top:23px; }
+ .conversion-proof svg { width:17px; }
+ .conversion-about { padding:52px 0; }
+ .conversion-about-grid { grid-template-columns:1fr; gap:32px; }
+ .conversion-about h2 { font-size:44px; }
+ .conversion-about-grid>div>p:not(.conversion-eyebrow) { font-size:17px; line-height:1.9; margin-top:22px; }
+ .conversion-programs h3 { font-size:24px; }
+ .conversion-programs strong { font-size:19px; }
+ .conversion-programs li p { font-size:16px; }
+ .conversion-inline-link { font-size:17px; }
+ .conversion-benefits { padding:55px 0; }
+ .conversion-section-heading { text-align:left; margin-bottom:28px; }
+ .conversion-section-heading h2 { font-size:48px; }
+ .conversion-section-heading>p:last-child { font-size:17px; }
+ .conversion-benefits-grid { grid-template-columns:1fr; gap:17px; }
+ .conversion-benefit { padding:29px 26px; }
+ .conversion-benefit h3 { font-size:25px; }
+ .conversion-benefit p { font-size:17px; line-height:1.9; }
+ .conversion-site .testimonials-heading-row>p { font-size:17px; }
+ .conversion-site .eyebrow { font-size:10px; }
+ .conversion-site .story-copy { min-height:0; }
+ .conversion-site .story-author>span { font-size:12px; }
+ .conversion-site .all-stories-cta .button { width:100%; font-size:15px; }
+ .conversion-site .faq-item summary { font-size:16px; }
+ .conversion-site .faq-answer p { font-size:16px; }
+ .conversion-site .faq-heading>p:last-child,.conversion-site .faq-contact>p { font-size:16px; }
+ .conversion-site .faq-contact .button { width:100%; font-size:15px; }
+ .conversion-site .footer-contact-links { grid-template-columns:1fr; }
+ .conversion-site .footer-contact-links strong { font-size:14px; }
+}
+@media(prefers-reduced-motion:reduce) { .conversion-button { transition:none; } }
