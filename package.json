@@ -7,6 +7,8 @@
     "dev": "next dev",
     "prebuild": "node scripts/check-dependencies.mjs",
     "build": "next build",
+    "postbuild": "node scripts/check-seo.mjs",
+    "test:seo": "node scripts/check-seo.mjs",
     "start": "node scripts/serve.mjs",
     "lint": "next lint"
   },

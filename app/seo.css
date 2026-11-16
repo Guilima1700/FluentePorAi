@@ -1,0 +1,8 @@
+.not-found-page { background:var(--red); color:var(--cream); min-height:calc(100svh - 87px); display:flex; align-items:center; padding:65px 0; }
+.not-found-page .container { max-width:850px; }
+.not-found-page h1 { font:400 clamp(52px,6vw,84px)/1.08 var(--serif); letter-spacing:-.025em; }
+.not-found-page h1 em { font-weight:400; }
+.not-found-page .container>p:last-of-type { font-size:18px; line-height:1.9; max-width:650px; margin-top:25px; }
+.not-found-actions { display:flex; gap:25px; align-items:center; flex-wrap:wrap; margin-top:30px; }
+.not-found-actions>a:last-child { display:flex; gap:12px; align-items:center; font-size:17px; font-weight:700; min-height:48px; }
+@media(max-width:767px){ .not-found-page { min-height:calc(100svh - 75px); padding-block:45px; } .not-found-page .container>p:last-of-type { font-size:17px; } }

@@ -3,11 +3,15 @@ import Header from '../../components/Header';
 import BrandSpark from '../../components/BrandSpark';
 import SiteFooter from '../../components/SiteFooter';
 import { testimonials } from '../../components/testimonials.mjs';
+import { pageMetadata, absoluteUrl } from '../../lib/site.mjs';
+import { organization, website } from '../../lib/structured-data.mjs';
+import StructuredData from '../../components/StructuredData';
 
-export const metadata = { title:'Depoimentos da nossa comunidade | Fluente por Aí',description:'Leia os depoimentos de alunos da Fluente por Aí: Jairo Oliveira, Sophia Cruz, Renata e família, Jeffeson Encarnação, Paulo Hiroyuki, Ana Vitória Macena e Luiz Felipe.' };
+export const metadata = pageMetadata('Depoimentos de alunos | Fluente por Aí','Conheça os relatos de alunos sobre as aulas de inglês online e o acompanhamento da Fluente por Aí.','/depoimentos/');
 
 export default function TestimonialsPage(){
-  return <><a className="skip-link" href="#conteudo">Ir para o conteúdo</a><Header whatsappLink="https://wa.me/5592982021077" baseHref="/"/>
+  const data={'@context':'https://schema.org','@graph':[organization,website,{'@type':'CollectionPage',url:absoluteUrl('/depoimentos/'),name:'Depoimentos de alunos da Fluente por Aí',inLanguage:'pt-BR',isPartOf:{'@id':website['@id']},about:{'@id':organization['@id']}},{'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Página inicial',item:absoluteUrl('/')},{'@type':'ListItem',position:2,name:'Depoimentos',item:absoluteUrl('/depoimentos/')}]}]};
+  return <><StructuredData data={data}/><a className="skip-link" href="#conteudo">Ir para o conteúdo</a><Header whatsappLink="https://wa.me/5592982021077" baseHref="/"/>
     <main id="conteudo" className="stories-page">
       <div className="container"><a className="page-back" href="/#depoimentos"><ArrowLeft size={17}/> Voltar ao site</a>
         <header className="stories-page-heading"><p className="eyebrow"><BrandSpark size={20} aria-hidden="true"/> NOSSA COMUNIDADE</p><h1>Histórias reais.<br/><em>Novos horizontes.</em></h1><p>Conheça as experiências de quem aprende com a Fluente por Aí. Aqui, cada voz tem seu espaço.</p><nav aria-label="Escolher depoimento">{testimonials.map(story=><a key={story.id} href={`#${story.id}`}>{story.name}<ArrowUpRight size={15}/></a>)}</nav></header>

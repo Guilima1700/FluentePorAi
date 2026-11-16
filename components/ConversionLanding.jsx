@@ -39,7 +39,7 @@ export default function ConversionLanding() {
 
       <section id="sobre" className="conversion-about section-anchor">
         <div className="container conversion-about-grid">
-          <div><p className="conversion-eyebrow">COMO FUNCIONA</p><h2>O inglês é o caminho.<br/><em>O destino é você quem escolhe.</em></h2><p>A Fluente por Aí conecta o aprendizado aos seus objetivos, com aulas online, conteúdo contextualizado e acompanhamento individualizado.</p><p>Para as conversas do dia a dia, uma nova oportunidade profissional ou a viagem que você quer fazer: encontre o programa que combina com o seu momento.</p></div>
+          <div><p className="conversion-eyebrow">COMO FUNCIONA</p><h2>O inglês é o caminho.<br/><em>O destino é você quem escolhe.</em></h2><p>A Fluente por Aí oferece cursos de inglês online que conectam o aprendizado aos seus objetivos, com conteúdo contextualizado e acompanhamento individualizado.</p><p>Para as conversas do dia a dia, uma nova oportunidade profissional ou a viagem que você quer fazer: encontre o programa que combina com o seu momento.</p></div>
           <div className="conversion-programs"><h3>Qual é o seu objetivo?</h3><ul>{programs.map(([name,description])=><li key={name}><Check size={22} aria-hidden="true"/><div><strong>{name}</strong><p>{description}</p></div></li>)}</ul><a className="conversion-inline-link" href={whatsapp} target="_blank" rel="noopener noreferrer">Quero conhecer as aulas <ArrowUpRight size={21} aria-hidden="true"/><span className="sr-only"> (abre WhatsApp em nova aba)</span></a></div>
         </div>
       </section>

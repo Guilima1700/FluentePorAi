@@ -5,3 +5,5 @@ node_modules/
 out/
 .openai/*.local.*
 *.log
+.env*
+!.env.example

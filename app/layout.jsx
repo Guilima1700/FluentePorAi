@@ -5,14 +5,22 @@ import "./vibrant.css";
 import "./faq.css";
 import "./refinements.css";
 import "./conversion.css";
+import "./seo.css";
+import { siteUrl, siteDescription, socialImage, indexable } from '../lib/site.mjs';
 
 export const metadata = {
-  title: "Fluente por Aí | English that takes you places",
+  metadataBase:new URL(siteUrl),
+  title: "Fluente por Aí | Cursos de inglês online",
   description:
-    "Aprenda inglês para se comunicar com confiança, desenvolver sua carreira e explorar novas oportunidades pelo mundo. Aulas online, programas personalizados e foco na comunicação real.",
+    siteDescription,
+  applicationName:'Fluente por Aí',
+  robots:{index:indexable,follow:true,googleBot:{index:indexable,follow:true,'max-image-preview':'large','max-snippet':-1,'max-video-preview':-1}},
+  verification:process.env.GOOGLE_SITE_VERIFICATION ? {google:process.env.GOOGLE_SITE_VERIFICATION}:undefined,
+  twitter:{card:'summary_large_image',title:'Fluente por Aí | Cursos de inglês online',description:siteDescription,images:[socialImage.url]},
   icons: { icon: "/brand/emblema-creme.png" },
   openGraph: {
-    title: "Fluente por Aí | English that takes you places",
+    title: "Fluente por Aí | Cursos de inglês online",
+    siteName:'Fluente por Aí', images:[socialImage],
     description:
       "Aulas online, programas personalizados e experiências de aprendizagem focadas na comunicação real.",
     locale: "pt_BR",
