@@ -17,14 +17,7 @@ export const metadata = {
   robots:{index:indexable,follow:true,googleBot:{index:indexable,follow:true,'max-image-preview':'large','max-snippet':-1,'max-video-preview':-1}},
   verification:process.env.GOOGLE_SITE_VERIFICATION ? {google:process.env.GOOGLE_SITE_VERIFICATION}:undefined,
   twitter:{card:'summary_large_image',title:'Fluente por Aí | Cursos de inglês online',description:siteDescription,images:[socialImage.url]},
-  icons: {
-    icon:[
-      {url:'/favicon-96x96.png',type:'image/png',sizes:'96x96'},
-      {url:'/favicon.ico',type:'image/x-icon',sizes:'16x16 32x32 48x48 96x96 256x256'},
-    ],
-    shortcut:'/favicon.ico',
-    apple:[{url:'/apple-touch-icon.png',sizes:'180x180',type:'image/png'}],
-  },
+  icons: { icon: "/brand/emblema-creme.png" },
   openGraph: {
     title: "Fluente por Aí | Cursos de inglês online",
     siteName:'Fluente por Aí', images:[socialImage],

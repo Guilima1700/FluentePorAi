@@ -30,18 +30,4 @@ assert.ok(read('404.html').includes('Esse caminho'));
 assert.ok(read('llms.txt').includes(absoluteUrl('/')));
 const image=readFileSync('out/og/site.png');
 assert.equal(image.readUInt32BE(16),1200);assert.equal(image.readUInt32BE(20),630);
-for(const [file,size] of [['favicon-96x96.png',96],['apple-touch-icon.png',180]]){
-  const png=readFileSync(`out/${file}`);
-  assert.equal(png.readUInt32BE(16),size);assert.equal(png.readUInt32BE(20),size);
-  assert.ok(home.includes(file),`${file}: declarado no HTML`);
-}
-const ico=readFileSync('out/favicon.ico');
-assert.equal(ico.readUInt16LE(0),0);assert.equal(ico.readUInt16LE(2),1);
-assert.equal(ico.readUInt16LE(4),5);
-for(let index=0;index<5;index++){
-  const entry=6+16*index, offset=ico.readUInt32LE(entry+12), length=ico.readUInt32LE(entry+8);
-  assert.ok(offset+length<=ico.length);
-  const size=ico[entry]||256;
-  assert.equal(ico.readUInt32BE(offset+16),size);assert.equal(ico.readUInt32BE(offset+20),size);
-}
 console.log('SEO validado: canonicals, H1, JSON-LD, 4 cursos, 7 FAQs, sitemap, robots, noindex, 404, llms.txt e imagem social.');
