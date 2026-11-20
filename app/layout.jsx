@@ -6,7 +6,10 @@ import "./faq.css";
 import "./refinements.css";
 import "./conversion.css";
 import "./seo.css";
+import Script from 'next/script';
 import { siteUrl, siteDescription, socialImage, indexable } from '../lib/site.mjs';
+
+const googleAnalyticsId = 'G-6XYQK6SFFP';
 
 export const metadata = {
   metadataBase:new URL(siteUrl),
@@ -49,7 +52,21 @@ export default function RootLayout({ children }) {
           <style>{`[style*="opacity"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script id="google-analytics-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { window.dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}');
+          `}
+        </Script>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }
