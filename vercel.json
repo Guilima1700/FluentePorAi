@@ -1,5 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/links/:path*",
+      "destination": "https://fluenteporai-links.vercel.app/:path*"
+    }
+  ],
   "headers": [
     {"source":"/(.*)","headers":[{"key":"X-Content-Type-Options","value":"nosniff"},{"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"}]},
     {"source":"/opcoes-mapa","headers":[{"key":"X-Robots-Tag","value":"noindex, follow"}]},
