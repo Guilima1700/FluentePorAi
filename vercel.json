@@ -2,7 +2,15 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/links/:path*",
+      "source": "/links",
+      "destination": "https://fluenteporai-links.vercel.app/index.html"
+    },
+    {
+      "source": "/links/",
+      "destination": "https://fluenteporai-links.vercel.app/index.html"
+    },
+    {
+      "source": "/links/:path+",
       "destination": "https://fluenteporai-links.vercel.app/:path*"
     }
   ],
